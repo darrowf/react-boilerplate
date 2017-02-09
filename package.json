@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "lint": "node_modules/.bin/eslint webpack.config.* src tools test",
-    "test": "node_modules/.bin/babel-node node_modules/.bin/babel-istanbul cover --report text node_modules/.bin/_mocha -- --require test/setup.js --require ignore-styles src/components/**/*_tests.js src/**/*_tests.js",
+    "test": "node_modules/.bin/babel-node node_modules/.bin/babel-istanbul cover --report text node_modules/.bin/_mocha -- --require test/setup.js --require ignore-styles src/**/*.js",
     "start": "node_modules/.bin/babel-node tools/local_server.js",
     "validate": "npm-run-all lint test"
   },
@@ -26,7 +26,8 @@
     "react-router-bootstrap": "^0.23.1",
     "react-router-redux": "^4.0.7",
     "redux": "^3.6.0",
-    "redux-thunk": "^2.2.0"
+    "redux-thunk": "^2.2.0",
+    "superagent": "^3.4.1"
   },
   "devDependencies": {
     "babel-cli": "^6.22.2",
@@ -52,9 +53,11 @@
     "jsdom": "^9.10.0",
     "mocha": "^3.2.0",
     "mocha-teamcity-reporter": "^1.1.1",
+    "nock": "^9.0.3",
     "npm-run-all": "^4.0.1",
     "open": "0.0.5",
     "react-addons-test-utils": "^15.4.2",
+    "redux-mock-store": "^1.2.2",
     "rimraf": "^2.5.4",
     "style-loader": "^0.13.1",
     "url-loader": "^0.5.7",

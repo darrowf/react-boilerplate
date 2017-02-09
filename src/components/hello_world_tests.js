@@ -5,10 +5,10 @@ const Enzyme = require( 'enzyme' )
 
 const TestHelpers = require( '../../test/helpers' )
 
-const HelloWorld = require( './hello_world' )
+const HelloWorld = require( './hello_world' ).component
 
 
-describe( '<HelloWorld (/src/components/hello_world_tests.js)', () => {
+describe( 'HelloWorld Component (/src/components/hello_world_tests.js)', () => {
 	let defaultProps
 	let propValidator
 

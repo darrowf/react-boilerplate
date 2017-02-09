@@ -1,15 +1,38 @@
 const React = require( 'react' )
+const Redux = require( 'react-redux' )
+
+const Api = require( '../lib/api' )
+const ApiActions = require( '../actions/api_call_actions' )
+
+const Button = require( 'react-bootstrap' ).Button
 
 
-class HelloWorldPage extends React.Component {
+class HelloWorld extends React.Component {
+	handleCallApi() {
+		this.props.dispatch(
+			ApiActions.callApi(
+				() => {
+					return ( () => {
+						return Api.fakeCall()
+					} )()
+				},
+				( err, res ) => {}
+			)
+		)
+	}
+
+
 	render() {
 		return (
 			<div>
-				<h1>Hello, World!</h1>
+				<Button bsStyle="primary" onClick={ this.handleCallApi.bind( this ) }>Call API</Button>
 			</div>
 		)
 	}
 }
 
 
-module.exports = HelloWorldPage
+module.exports = {
+	component	: HelloWorld,
+	redux		: Redux.connect()( HelloWorld )
+}
